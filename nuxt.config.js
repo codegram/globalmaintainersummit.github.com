@@ -2,6 +2,9 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   ssr: false,
+  router: {
+    base: process.env.BASE_PATH || '/',
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -53,7 +56,7 @@ export default {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: 'https://globalmaintainersummit.github.com/image.png',
+        content: 'https://globalmaintainersummit.github.com/social-card.png',
       },
       {
         hid: 'twitter:image:alt',
@@ -81,7 +84,7 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://globalmaintainersummit.github.com/image.png',
+        content: 'https://globalmaintainersummit.github.com/social-card.png',
       },
       {
         hid: 'og:image:width',
@@ -96,7 +99,7 @@ export default {
       {
         hid: 'og:image:secure_url',
         property: 'og:image:secure_url',
-        content: 'https://globalmaintainersummit.github.com/image.png',
+        content: 'https://globalmaintainersummit.github.com/social-card.png',
       },
       {
         hid: 'og:image:alt',
