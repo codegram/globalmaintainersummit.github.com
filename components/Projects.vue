@@ -30,11 +30,7 @@ export default {
   computed: {
     projectsSortedByName() {
       return [...this.content].sort((a, b) =>
-        a.name.toLowerCase() > b.name.toLowerCase()
-          ? 1
-          : a.name.toLowerCase() < b.name.toLowerCase()
-          ? -1
-          : 0
+        a.name.toLowerCase().localeCompare(b.name.toLowerCase())
       )
     },
   },
