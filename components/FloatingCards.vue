@@ -35,25 +35,27 @@ export default {
     display: block;
   }
   &__wrapper {
+    --position-y: -100px;
+
     position: absolute;
-    top: 0;
+    top: var(--position-y);
     right: 0;
+    width: 100%;
+    height: 400px;
+    transition: top 0.25s ease;
     .card {
       position: absolute;
-
       &:nth-child(1) {
-        top: -80px;
-        left: -620px;
+        top: -180px;
+        right: calc(100vw * 0.12);
       }
       &:nth-child(2) {
         top: 260px;
-        left: calc(100vw * -0.4);
-        left: -420px;
+        right: calc(100vw * 0.075);
       }
       &:nth-child(3) {
         top: 100px;
-        left: calc(100vw * -0.25);
-        left: -200px;
+        right: calc(100vw * -0.1);
       }
     }
   }
