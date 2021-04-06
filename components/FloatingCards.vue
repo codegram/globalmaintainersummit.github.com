@@ -2,7 +2,7 @@
   <div class="floating">
     <div class="floating__wrapper">
       <FloatingCard
-        v-for="project in slicedProjects(3)"
+        v-for="project in slicedProjects(8)"
         :key="project.name"
         :project="project"
       />
@@ -46,16 +46,44 @@ export default {
     .card {
       position: absolute;
       &:nth-child(1) {
-        top: -180px;
-        right: calc(100vw * 0.12);
+        // PyLadies
+        top: -10px;
+        right: calc(100vw * 0.07);
       }
       &:nth-child(2) {
-        top: 260px;
-        right: calc(100vw * 0.075);
+        // Ruby on Rails
+        top: 95px;
+        right: calc(100vw * 0.25);
       }
       &:nth-child(3) {
-        top: 100px;
+        // Wordpress
+        top: 200px;
         right: calc(100vw * -0.1);
+      }
+      &:nth-child(4) {
+        // Homebrew
+        top: 380px;
+        right: calc(100vw * 0.075);
+      }
+      &:nth-child(5) {
+        // Node.js
+        top: 800px;
+        right: calc(100vw * 0.075);
+      }
+      &:nth-child(6) {
+        // Phyton
+        top: 550px;
+        right: calc(100vw * 0.02);
+      }
+      &:nth-child(7) {
+        // Prometheus
+        top: 1300px;
+        right: calc(100vw * 0.49);
+      }
+      &:nth-child(8) {
+        // Rust
+        top: 1500px;
+        right: calc(100vw * 0.4);
       }
     }
   }
