@@ -3,19 +3,11 @@
     <div class="card__badge">
       <picture>
         <source
-          :srcset="
-            require(`~/assets/img/badges/logo_${project.name
-              .replace(/\s/g, '')
-              .toLowerCase()}@2x.png`)
-          "
+          :srcset="require(`~/assets/img/badges/logo_${projectName}@2x.png`)"
           media="(min-width: 600px)"
         />
         <img
-          :src="
-            require(`~/assets/img/badges/logo_${project.name
-              .replace(/\s/g, '')
-              .toLowerCase()}.png`)
-          "
+          :src="require(`~/assets/img/badges/logo_${projectName}.png`)"
           :alt="project"
         />
       </picture>
@@ -33,6 +25,13 @@ export default {
     project: {
       type: Object,
       required: true,
+    },
+  },
+  computed: {
+    projectName() {
+      return this.project.name
+        .replace(/([$&+,:;=?@#|'<>.^*()%!-])|(\s)/g, '')
+        .toLowerCase()
     },
   },
 }
