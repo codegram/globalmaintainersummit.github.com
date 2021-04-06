@@ -35,7 +35,7 @@ export default {
     observeScroll() {
       const options = {
         root: null,
-        rootMargin: '-470px 0px 0px 0px',
+        rootMargin: '-380px 0px 0px 0px',
         threshold: Array.from({ length: 100 }, (value, index) => index / 100),
       }
 
@@ -48,10 +48,9 @@ export default {
     parallaxOnScroll(entries) {
       entries.forEach(({ target, isIntersecting, intersectionRatio }) => {
         if (isIntersecting) {
-          console.log(intersectionRatio)
           target.style.setProperty(
             '--position-y',
-            `-${(1 - intersectionRatio) * 220}px`
+            `${(intersectionRatio - 1) * 220}px`
           )
         }
       })
@@ -80,15 +79,21 @@ export default {
 .floating {
   display: none;
   @media screen and (min-width: $screen-xl) {
-    position: relative;
+    position: absolute;
+    top: 380px;
+    right: 0;
+    left: 0;
     display: block;
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
   }
   &__wrapper {
     position: absolute;
     top: var(--position-y, 0);
     right: 0;
     width: 100%;
-    height: 400px;
+    height: 500px;
     transition: top linear;
     will-change: top;
     .card {
@@ -125,12 +130,12 @@ export default {
       }
       &:nth-child(7) {
         // Prometheus
-        top: 1300px;
+        top: 1800px;
         right: calc(100vw * 0.49);
       }
       &:nth-child(8) {
         // Rust
-        top: 1500px;
+        top: 2000px;
         right: calc(100vw * 0.4);
       }
     }
