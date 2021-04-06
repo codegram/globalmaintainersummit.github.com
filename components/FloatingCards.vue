@@ -62,7 +62,7 @@ export default {
       }
       &:nth-child(4) {
         // Homebrew
-        top: 380px;
+        top: 350px;
         right: calc(100vw * 0.075);
       }
       &:nth-child(5) {
