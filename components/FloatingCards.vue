@@ -1,6 +1,6 @@
 <template>
   <div class="floating">
-    <div class="floating__wrapper">
+    <div ref="wrapper" class="floating__wrapper">
       <FloatingCard
         v-for="project in slicedProjects(8)"
         :key="project.name"
@@ -18,7 +18,56 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      observers: [],
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.observeScroll()
+    })
+  },
+  beforeDestroy() {
+    this.observers.forEach((observer) => observer.disconnect())
+  },
   methods: {
+    observeScroll() {
+      const options = {
+        root: null,
+        rootMargin: '-470px 0px 0px 0px',
+        threshold: Array.from({ length: 100 }, (value, index) => index / 100),
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => this.parallaxOnScroll(entries),
+        options
+      )
+      observer.observe(this.$refs.wrapper)
+    },
+    parallaxOnScroll(entries) {
+      entries.forEach(({ target, isIntersecting, intersectionRatio }) => {
+        if (isIntersecting) {
+          console.log(intersectionRatio)
+          target.style.setProperty(
+            '--position-y',
+            `-${(1 - intersectionRatio) * 220}px`
+          )
+        }
+      })
+    },
+    buildThresholdList() {
+      const thresholds = []
+      const numSteps = 20
+
+      for (let i = 1.0; i <= numSteps; i++) {
+        const ratio = i / numSteps
+        thresholds.push(ratio)
+      }
+
+      thresholds.push(0)
+      return thresholds
+    },
     slicedProjects(limit) {
       // Limit the content lenght to display only an specific amount of cards.
       return this.content.slice(0, limit)
@@ -35,14 +84,13 @@ export default {
     display: block;
   }
   &__wrapper {
-    --position-y: -100px;
-
     position: absolute;
-    top: var(--position-y);
+    top: var(--position-y, 0);
     right: 0;
     width: 100%;
     height: 400px;
-    transition: top 0.25s ease;
+    transition: top linear;
+    will-change: top;
     .card {
       position: absolute;
       &:nth-child(1) {
