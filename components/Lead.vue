@@ -2,7 +2,7 @@
   <div>
     <div class="lead">
       <h2 class="lead__title">{{ content.title }}</h2>
-      <CommonLink href="#">
+      <CommonLink :href="calendarUrl">
         <span class="lead__dates">{{ content.dates }}</span>
         <AddToCalIcon />
       </CommonLink>
@@ -22,6 +22,12 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  data() {
+    return {
+      calendarUrl:
+        'http://www.google.com/calendar/event?action=TEMPLATE&dates=20210608%2F20210610&text=Global%20Maintainer%20Event&&details=A%20virtual%20gathering%20for%20the%20maintainers%20that%20make%20open%20source%20possible',
+    }
   },
 }
 </script>
