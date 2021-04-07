@@ -2,8 +2,7 @@
   <main class="main">
     <section>
       <Hero :content="hero" />
-      // FIXME
-      <!-- <FloatingCards :content="projects" /> -->
+      <FloatingCards :content="maintainers" />
       <Lead :content="lead" />
       <Details :content="details" />
       <div class="cta">

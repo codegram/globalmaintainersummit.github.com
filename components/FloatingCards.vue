@@ -2,7 +2,7 @@
   <div class="floating">
     <div ref="wrapper" class="floating__wrapper">
       <FloatingCard
-        v-for="project in slicedProjects(8)"
+        v-for="project in projects"
         :key="project.name"
         :project="project"
       />
@@ -22,6 +22,19 @@ export default {
     return {
       observers: [],
     }
+  },
+  computed: {
+    projects() {
+      const projects = this.content.reduce((accumulator, element) => {
+        const projects = element.projects
+        projects.forEach((project) => {
+          project.speaker = element.speaker
+          project.handler = element.handler
+        })
+        return accumulator.concat(projects)
+      }, [])
+      return projects
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -69,7 +82,13 @@ export default {
     },
     slicedProjects(limit) {
       // Limit the content lenght to display only an specific amount of cards.
-      return this.content.slice(0, limit)
+      // return this.content.slice(0, limit)
+      return [
+        {
+          name: 'Ruby on Rails',
+          url: 'https://github.com/rails',
+        },
+      ]
     },
   },
 }
