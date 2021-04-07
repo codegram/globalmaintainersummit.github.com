@@ -2,7 +2,8 @@
   <main class="main">
     <section>
       <Hero :content="hero" />
-      <FloatingCards :content="projects" />
+      // FIXME
+      <!-- <FloatingCards :content="projects" /> -->
       <Lead :content="lead" />
       <Details :content="details" />
       <div class="cta">
@@ -10,14 +11,14 @@
           {{ cta.label }}
         </CommonLink>
       </div>
-      <Projects :content="projects" />
+      <Maintainers :content="maintainers" />
     </section>
   </main>
 </template>
 <script>
 export default {
   async asyncData({ $content }) {
-    const { hero, lead, details, cta, projects } = await $content(
+    const { hero, lead, details, cta, maintainers } = await $content(
       'home'
     ).fetch()
 
@@ -26,7 +27,7 @@ export default {
       lead,
       details,
       cta,
-      projects,
+      maintainers,
     }
   },
 }
