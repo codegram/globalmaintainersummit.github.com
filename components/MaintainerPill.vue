@@ -29,14 +29,6 @@ export default {
       required: true,
     },
   },
-  methods: {
-    isLastProject(index, projectsNumber) {
-      return index <= projectsNumber
-    },
-    hasMultipleProjects(projectsNumber) {
-      return projectsNumber > 1
-    },
-  },
 }
 </script>
 
