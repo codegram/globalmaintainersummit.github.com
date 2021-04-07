@@ -64,8 +64,6 @@ export default {
   }
 
   a {
-    display: inline-block;
-    text-decoration: none;
     &:hover {
       .maintainer__speaker {
         background-position: 100% center;
@@ -91,7 +89,7 @@ export default {
     font-weight: var(--fw-medium);
     transition: color 0.5s ease-in;
     &:hover {
-      color: white;
+      color: var(--fc-default);
     }
   }
 
