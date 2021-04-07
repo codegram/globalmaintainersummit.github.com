@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <a :href="project.url" target="_blank" class="card">
     <div class="card__badge">
       <picture>
         <source
@@ -16,7 +16,7 @@
       <h4>{{ project.name }}</h4>
       <p>{{ project.speaker }} (@{{ project.handler }})</p>
     </div>
-  </div>
+  </a>
 </template>
 
 <script>
@@ -43,6 +43,7 @@ export default {
   align-items: center;
   padding: 16px;
   overflow: hidden;
+  color: var(--ff-default);
   border: 1px solid var(--border-floating-card);
   border-radius: 8px;
   box-shadow: 0 0 32px 0 var(--bs-floating-card);
