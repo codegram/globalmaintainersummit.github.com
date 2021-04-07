@@ -80,16 +80,6 @@ export default {
       thresholds.push(0)
       return thresholds
     },
-    slicedProjects(limit) {
-      // Limit the content lenght to display only an specific amount of cards.
-      // return this.content.slice(0, limit)
-      return [
-        {
-          name: 'Ruby on Rails',
-          url: 'https://github.com/rails',
-        },
-      ]
-    },
   },
 }
 </script>
