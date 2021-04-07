@@ -83,6 +83,7 @@ export default {
 
 <style lang="scss" scoped>
 .floating {
+  z-index: var(--z-index-cards);
   display: none;
   @media screen and (min-width: $screen-xl) {
     position: absolute;
