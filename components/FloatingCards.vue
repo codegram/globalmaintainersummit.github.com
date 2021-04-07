@@ -25,15 +25,14 @@ export default {
   },
   computed: {
     projects() {
-      const projects = this.content.reduce((accumulator, element) => {
-        const projects = element.projects
+      return this.content.flatMap((maintainer) => {
+        const projects = maintainer.projects
         projects.forEach((project) => {
-          project.speaker = element.speaker
-          project.handler = element.handler
+          project.speaker = maintainer.speaker
+          project.handler = maintainer.handler
         })
-        return accumulator.concat(projects)
-      }, [])
-      return projects
+        return projects
+      })
     },
   },
   mounted() {
