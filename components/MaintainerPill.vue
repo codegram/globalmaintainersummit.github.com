@@ -14,7 +14,11 @@
         </a>
         <span v-if="maintainer.projects.length > 1" class="project__separator">
           <span v-if="index + 2 === maintainer.projects.length"> and </span>
-          <span v-else-if="index + 1 < maintainer.projects.length">, </span>
+          <span
+            v-else-if="index + 1 < maintainer.projects.length"
+            class="project__separator--comma"
+            >,
+          </span>
         </span>
       </div>
     </div>
@@ -92,7 +96,10 @@ export default {
   }
 
   &__separator {
-    padding-right: 8px;
+    padding-right: 4px;
+    &--comma {
+      margin-left: -8px;
+    }
   }
 }
 </style>
