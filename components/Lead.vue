@@ -2,13 +2,21 @@
   <div>
     <div class="lead">
       <h2 class="lead__title">{{ content.title }}</h2>
-      <p class="lead__dates">{{ content.dates }}</p>
+      <CommonLink href="#">
+        <span class="lead__dates">{{ content.dates }}</span>
+        <AddToCalIcon />
+      </CommonLink>
     </div>
   </div>
 </template>
 
 <script>
+import AddToCalIcon from '~/assets/svg/add_to_cal.svg?inline'
+
 export default {
+  components: {
+    AddToCalIcon,
+  },
   props: {
     content: {
       type: Object,
@@ -38,7 +46,9 @@ export default {
   &__dates {
     @include mobileToDesktopFontSize(var(--fs-regular), var(--fs-medium));
 
+    display: inline-block;
     margin-top: 40px;
+    margin-right: 16px;
     color: var(--fc-default);
     font-weight: var(--fw-medium);
     font-size: var(--fs-medium);
