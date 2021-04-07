@@ -96,7 +96,7 @@ export default {
   &__separator {
     padding-right: 4px;
     &--comma {
-      margin-left: -8px;
+      margin-left: -4px;
     }
   }
 }
