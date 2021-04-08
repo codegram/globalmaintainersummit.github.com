@@ -3,7 +3,7 @@
     <section>
       <Hero />
       <FloatingCards :content="maintainers" />
-      <Lead :content="lead" />
+      <Lead />
       <Details />
       <div class="cta">
         <CommonLink button :href="cta.url">
@@ -17,10 +17,9 @@
 <script>
 export default {
   async asyncData({ $content }) {
-    const { lead, cta, maintainers } = await $content('home').fetch()
+    const { cta, maintainers } = await $content('home').fetch()
 
     return {
-      lead,
       cta,
       maintainers,
     }

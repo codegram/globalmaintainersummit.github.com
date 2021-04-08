@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <div class="lead">
-      <h2 class="lead__title">{{ content.title }}</h2>
-      <CommonLink :href="calendarUrl">
-        <span class="lead__dates">{{ dates }}</span>
-        <AddToCalIcon />
-      </CommonLink>
-    </div>
+  <div v-if="lead" class="lead">
+    <h2 class="lead__title">{{ lead.title }}</h2>
+    <CommonLink :href="calendarUrl">
+      <span class="lead__dates">{{ dates }}</span>
+      <AddToCalIcon />
+    </CommonLink>
   </div>
 </template>
 
@@ -17,18 +15,19 @@ export default {
   components: {
     AddToCalIcon,
   },
-  props: {
-    content: {
-      type: Object,
-      required: true,
-    },
-  },
   data() {
     return {
+      lead: null,
       locale: 'en-US',
-      startDate: new Date(this.content.dates.start),
-      endDate: new Date(this.content.dates.end),
+      startDate: null,
+      endDate: null,
     }
+  },
+  async fetch() {
+    const { lead } = await this.$content('home').only(['lead']).fetch()
+    this.lead = lead
+    this.startDate = new Date(lead.dates.start)
+    this.endDate = new Date(lead.dates.end)
   },
   computed: {
     dates() {
