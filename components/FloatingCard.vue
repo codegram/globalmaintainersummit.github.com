@@ -13,8 +13,8 @@
       </picture>
     </div>
     <div class="card__content">
-      <h4>{{ project.name }}</h4>
-      <p>{{ project.speaker }}</p>
+      <p class="card__content--name">{{ project.name }}</p>
+      <p class="card__content--speaker">{{ project.speaker }}</p>
     </div>
   </a>
 </template>
@@ -61,16 +61,16 @@ export default {
   }
   &__content {
     margin-right: 16px;
-    h4,
-    p {
+    &--name,
+    &--speaker {
       margin: 0;
       white-space: nowrap;
     }
-    h4 {
+    &--name {
       font-size: var(--fs-default);
       font-family: var(--ff-title);
     }
-    p {
+    &--speaker {
       margin-top: 4px;
       color: var(--fc-floating-pill-mantainer);
       font-size: var(--fs-small);
