@@ -62,7 +62,8 @@ export default {
       return date.toISOString().slice(0, 10).replaceAll('-', '') // YYYYMMDD
     },
     nextDay(date) {
-      return new Date(date.setDate(date.getDate() + 1))
+      const nextDate = new Date(date)
+      return new Date(nextDate.setDate(nextDate.getDate() + 1))
     },
   },
 }
