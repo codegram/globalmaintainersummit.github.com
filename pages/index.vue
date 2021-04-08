@@ -1,7 +1,7 @@
 <template>
   <main class="main">
     <section>
-      <Hero :content="hero" />
+      <Hero />
       <FloatingCards :content="maintainers" />
       <Lead :content="lead" />
       <Details />
@@ -17,10 +17,9 @@
 <script>
 export default {
   async asyncData({ $content }) {
-    const { hero, lead, cta, maintainers } = await $content('home').fetch()
+    const { lead, cta, maintainers } = await $content('home').fetch()
 
     return {
-      hero,
       lead,
       cta,
       maintainers,
