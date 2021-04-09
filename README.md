@@ -4,7 +4,11 @@
 
 ### Step 1
 
-Go to `content/home.json` file. To add a new maintainer just add to the `maintainers` array a new `maintainer` object. To add a new project, find the maintainer in the array and just add a new `project` object to the projects array.
+Go to `content/home.json` file.
+
+To add a new maintainer just add to the `maintainers` array a new `maintainer` object providing the speaker name, their GitHub profile handler and a list with the projects they maintain.
+
+To add a new project, find the maintainer in the array and just add a new `project` object to the projects array, providing the project name and GitHub repo URL for each project.
 
 ```json
 {
