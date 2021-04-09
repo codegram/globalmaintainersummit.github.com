@@ -1,9 +1,8 @@
-import { mount } from '@vue/test-utils'
+import { render } from '@testing-library/vue'
 import Hero from '@/components/Hero'
 
 describe('Hero', () => {
   test('is a Vue instance', () => {
-    const wrapper = mount(Hero)
-    expect(wrapper.vm).toBeTruthy()
+    render(Hero)
   })
 })
