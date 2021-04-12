@@ -24,7 +24,7 @@ export function formatDate(startDate, endDate, locale) {
 
   return startMonth === endMonth
     ? `${startMonth} ${startDay}-${endDay}, ${year}`
-    : `${startMonth} ${startDay} - ${endMonth}${endDay}, ${year}`
+    : `${startMonth} ${startDay} - ${endMonth} ${endDay}, ${year}`
 }
 
 /**
