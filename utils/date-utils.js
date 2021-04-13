@@ -12,15 +12,15 @@
  * @returns
  */
 export function formatDate(startDate, endDate, locale) {
-  const startDay = startDate.getDate()
+  const startDay = startDate.getUTCDate()
   const startMonth = startDate.toLocaleDateString(locale, {
     month: 'long',
   })
-  const endDay = endDate.getDate()
+  const endDay = endDate.getUTCDate()
   const endMonth = endDate.toLocaleDateString(locale, {
     month: 'long',
   })
-  const year = startDate.getFullYear()
+  const year = startDate.getUTCFullYear()
 
   return startMonth === endMonth
     ? `${startMonth} ${startDay}-${endDay}, ${year}`
@@ -64,5 +64,5 @@ function formatDateCalendar(date) {
  */
 function nextDay(date) {
   const nextDate = new Date(date)
-  return new Date(nextDate.setDate(nextDate.getDate() + 1))
+  return new Date(nextDate.setDate(nextDate.getUTCDate() + 1))
 }
