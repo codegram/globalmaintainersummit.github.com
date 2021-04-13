@@ -13,7 +13,12 @@
         :key="project.name"
         class="project"
       >
-        <a :href="project.url" target="_blank" class="project__link">
+        <a
+          :href="project.url"
+          target="_blank"
+          class="project__link"
+          data-cy="project"
+        >
           {{ project.name }}
         </a>
         <span v-if="maintainer.projects.length > 1" class="project__separator">
