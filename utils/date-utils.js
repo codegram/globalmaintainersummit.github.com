@@ -12,6 +12,10 @@
  * @returns
  */
 export function formatDate(startDate, endDate, locale) {
+  if (!isValidDate(startDate) || !isValidDate(endDate)) {
+    return ''
+  }
+
   const startDay = startDate.getUTCDate()
   const startMonth = startDate.toLocaleDateString(locale, {
     month: 'long',
@@ -39,6 +43,10 @@ export function formatDate(startDate, endDate, locale) {
  * @returns
  */
 export function buildGoogleCalendarUrl(startDate, endDate, text, details) {
+  if (!isValidDate(startDate) || !isValidDate(endDate)) {
+    return ''
+  }
+
   const startDateFormatted = formatDateCalendar(startDate)
   const endDateFormatted = formatDateCalendar(nextDay(endDate))
 
@@ -65,4 +73,14 @@ function formatDateCalendar(date) {
 function nextDay(date) {
   const nextDate = new Date(date)
   return new Date(nextDate.setDate(nextDate.getUTCDate() + 1))
+}
+
+/**
+ * Check if the given date is valid
+ *
+ * @param {*} date
+ * @returns
+ */
+function isValidDate(date) {
+  return date instanceof Date && !isNaN(date)
 }
