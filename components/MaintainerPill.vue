@@ -1,6 +1,10 @@
 <template>
   <div class="maintainer">
-    <a :href="`https://github.com/${maintainer.handler}`" target="_blank">
+    <a
+      :href="`https://github.com/${maintainer.handler}`"
+      target="_blank"
+      data-cy="speaker"
+    >
       <h2 class="maintainer__speaker">{{ maintainer.speaker }}</h2>
     </a>
     <div class="maintainer__projects">
