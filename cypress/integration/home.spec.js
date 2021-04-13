@@ -24,7 +24,7 @@ describe('Home', () => {
     cy.get('[data-cy=speaker]').click({ multiple: true })
   })
 
-  it.only('Projects are clickable', () => {
+  it('Projects are clickable', () => {
     cy.visit('/')
     cy.get('[data-cy=project]').click({ multiple: true })
   })
