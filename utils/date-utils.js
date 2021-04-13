@@ -6,10 +6,10 @@
  * For dates that belong to different months:
  * June 8 - July 9, 2021
  *
- * @param {*} startDate
- * @param {*} endDate
- * @param {*} locale
- * @returns
+ * @param {Date} startDate
+ * @param {Date} endDate
+ * @param {String} locale
+ * @returns {String}
  */
 export function formatDate(startDate, endDate, locale) {
   if (!isValidDate(startDate) || !isValidDate(endDate)) {
@@ -36,11 +36,11 @@ export function formatDate(startDate, endDate, locale) {
  * In order to set an all day event in Google Calendar, the end day has to be a day more of the actual date.
  * e.g. To create an event for dates June 8-9 it needs to be set June 8-10
  *
- * @param {*} startDate
- * @param {*} endDate
- * @param {*} text
- * @param {*} details
- * @returns
+ * @param {Date} startDate
+ * @param {Date} endDate
+ * @param {String} text
+ * @param {String} details
+ * @returns {String}
  */
 export function buildGoogleCalendarUrl(startDate, endDate, text, details) {
   if (!isValidDate(startDate) || !isValidDate(endDate)) {
@@ -57,8 +57,8 @@ export function buildGoogleCalendarUrl(startDate, endDate, text, details) {
  * Format the given date to the following format:
  * YYYYMMDD
  *
- * @param {*} date
- * @returns
+ * @param {Date} date
+ * @returns {String}
  */
 function formatDateCalendar(date) {
   return date.toISOString().slice(0, 10).replaceAll('-', '')
@@ -67,8 +67,8 @@ function formatDateCalendar(date) {
 /**
  * Calculates the next day of the given date
  *
- * @param {*} date
- * @returns
+ * @param {Date} date
+ * @returns {Date}
  */
 function nextDay(date) {
   const nextDate = new Date(date)
@@ -78,8 +78,8 @@ function nextDay(date) {
 /**
  * Check if the given date is valid
  *
- * @param {*} date
- * @returns
+ * @param {Date} date
+ * @returns {Boolean}
  */
 function isValidDate(date) {
   return date instanceof Date && !isNaN(date)
