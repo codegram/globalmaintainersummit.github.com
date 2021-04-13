@@ -21,11 +21,15 @@ describe('Home', () => {
 
   it('Maintainers are clickable', () => {
     cy.visit('/')
-    cy.get('[data-cy=speaker]').click({ multiple: true })
+    cy.get('[data-cy=speaker]').each(($link) => {
+      cy.get($link).click()
+    })
   })
 
   it('Projects are clickable', () => {
     cy.visit('/')
-    cy.get('[data-cy=project]').click({ multiple: true })
+    cy.get('[data-cy=project]').each(($link) => {
+      cy.get($link).click()
+    })
   })
 })
