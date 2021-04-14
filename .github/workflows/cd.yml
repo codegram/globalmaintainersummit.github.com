@@ -1,12 +1,13 @@
-name: cd
+name: ci
 
 on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
-  cd:
+  ci:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -53,6 +54,7 @@ jobs:
           npm run e2e:ci
 
       - name: Deploy 🚀
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
