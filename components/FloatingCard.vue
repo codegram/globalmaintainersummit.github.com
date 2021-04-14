@@ -1,5 +1,5 @@
 <template>
-  <a :href="project.url" target="_blank" class="card">
+  <a :href="project.url" target="_blank" class="card" data-cy="card">
     <div class="card-badge">
       <img
         :src="require(`~/assets/img/badges/${project.badge}`)"
